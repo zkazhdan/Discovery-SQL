@@ -1,0 +1,3 @@
+﻿CREATE USER [Mike] WITHOUT LOGIN
+    WITH DEFAULT_SCHEMA = [Mike];
+

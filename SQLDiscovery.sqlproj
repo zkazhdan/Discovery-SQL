@@ -1,0 +1,789 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SQLDiscovery</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{2b6078c8-ced5-4a75-b695-bdfc55d3ddb3}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SQLDiscovery</RootNamespace>
+    <AssemblyName>SQLDiscovery</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <DefaultCollation>Latin1_General_CI_AS</DefaultCollation>
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>TORN_PAGE_DETECTION</PageVerify>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <CompatibilityMode>80</CompatibilityMode>
+    <AnsiNullDefault>False</AnsiNullDefault>
+    <AnsiNulls>False</AnsiNulls>
+    <AnsiPadding>False</AnsiPadding>
+    <AnsiWarnings>False</AnsiWarnings>
+    <ArithAbort>False</ArithAbort>
+    <ConcatNullYieldsNull>False</ConcatNullYieldsNull>
+    <QuotedIdentifier>False</QuotedIdentifier>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>GLOBAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>True</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>SIMPLE</Recovery>
+    <EnableFullTextSearch>False</EnableFullTextSearch>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\User Defined Types\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\IBank_Accounts.sql" />
+    <Build Include="dbo\Tables\Account_Prepost_Validation.sql" />
+    <Build Include="dbo\Tables\AmexDldInvoice.sql" />
+    <Build Include="dbo\Tables\GalErrQue.sql" />
+    <Build Include="dbo\Tables\GrpFreeInv.sql" />
+    <Build Include="dbo\Tables\SBU.sql" />
+    <Build Include="dbo\Tables\MarketCorrespondance.sql" />
+    <Build Include="dbo\Tables\Traveld.sql" />
+    <Build Include="dbo\Tables\DepartPt.sql" />
+    <Build Include="dbo\Tables\AmexChgHdrVol1.sql" />
+    <Build Include="dbo\Tables\ConsolTaxBreakDown.sql" />
+    <Build Include="dbo\Tables\HeardofUs.sql" />
+    <Build Include="dbo\Tables\UnProcessRefTicket.sql" />
+    <Build Include="dbo\Tables\AmexChgHdrHdr1.sql" />
+    <Build Include="dbo\Tables\EmailToDoFile.sql" />
+    <Build Include="dbo\Tables\PER_Printed.sql" />
+    <Build Include="dbo\Tables\GrpFlight.sql" />
+    <Build Include="dbo\Tables\IATANo.sql" />
+    <Build Include="dbo\Tables\Avis_Invoice_created.sql" />
+    <Build Include="dbo\Tables\SaleFreeTxt.sql" />
+    <Build Include="dbo\Tables\tsdhandofflinesori.sql" />
+    <Build Include="dbo\Tables\AmexChgHdrHdr2.sql" />
+    <Build Include="dbo\Tables\Evolvi4_Setup.sql" />
+    <Build Include="dbo\Tables\Passport.sql" />
+    <Build Include="dbo\Tables\WinTIDetailsBooking.sql" />
+    <Build Include="dbo\Tables\Commedia_to_Process.sql" />
+    <Build Include="dbo\Tables\MarketToDoList.sql" />
+    <Build Include="dbo\Tables\MiscType.sql" />
+    <Build Include="dbo\Tables\BSPTravel.sql" />
+    <Build Include="dbo\Tables\AmexChgHdrTFH.sql" />
+    <Build Include="dbo\Tables\InvHeader.sql" />
+    <Build Include="dbo\Tables\Embassy.sql" />
+    <Build Include="dbo\Tables\Bnch.sql" />
+    <Build Include="dbo\Tables\AmexChgHdrTHB.sql" />
+    <Build Include="dbo\Tables\Invoice_Status.sql" />
+    <Build Include="dbo\Tables\GalData.sql" />
+    <Build Include="dbo\Tables\Galileo_RAM_RailHdr.sql" />
+    <Build Include="dbo\Tables\CounVaccination.sql" />
+    <Build Include="dbo\Tables\Shell_Invoice_Sumary.sql" />
+    <Build Include="dbo\Tables\HotelGUICategory.sql" />
+    <Build Include="dbo\Tables\AmexChgDataTAB.sql" />
+    <Build Include="dbo\Tables\SaleInvComment.sql" />
+    <Build Include="dbo\Tables\HotCommVoucher.sql" />
+    <Build Include="dbo\Tables\OperatorRail.sql" />
+    <Build Include="dbo\Tables\MarketEmail.sql" />
+    <Build Include="dbo\Tables\Shell_Invoice_List.sql" />
+    <Build Include="dbo\Tables\z_Currency.sql" />
+    <Build Include="dbo\Tables\Refund_Types.sql" />
+    <Build Include="dbo\Tables\VISMA_Configuration.sql" />
+    <Build Include="dbo\Tables\Shell_Temp.sql" />
+    <Build Include="dbo\Tables\AmexChgDataTAA.sql" />
+    <Build Include="dbo\Tables\Visa_Client_Auth_Code.sql" />
+    <Build Include="dbo\Tables\Comm_Configuration.sql" />
+    <Build Include="dbo\Tables\HotPaxVoucher.sql" />
+    <Build Include="dbo\Tables\Evolvi_Custom_Lookup.sql" />
+    <Build Include="dbo\Tables\Jobtitle.sql" />
+    <Build Include="dbo\Tables\HotelComments.sql" />
+    <Build Include="dbo\Tables\Airplus_Consol_Direct_Supplier.sql" />
+    <Build Include="dbo\Tables\MC_Configure.sql" />
+    <Build Include="dbo\Tables\BookDiag.sql" />
+    <Build Include="dbo\Tables\GroupDescription.sql" />
+    <Build Include="dbo\Tables\AmexChgDataTAM.sql" />
+    <Build Include="dbo\Tables\TAMS_Fee_Setup.sql" />
+    <Build Include="dbo\Tables\MC_TLR_Tailer_Record.sql" />
+    <Build Include="dbo\Tables\WinTISeq.sql" />
+    <Build Include="dbo\Tables\GrpHotel.sql" />
+    <Build Include="dbo\Tables\Country_Branch.sql" />
+    <Build Include="dbo\Tables\PageFreeText.sql" />
+    <Build Include="dbo\Tables\Shell_Invoice_Article.sql" />
+    <Build Include="dbo\Tables\Instone_Ref.sql" />
+    <Build Include="dbo\Tables\TAMS_Fee_Header.sql" />
+    <Build Include="dbo\Tables\Emp_can_Access_Branch.sql" />
+    <Build Include="dbo\Tables\CompaniesGroup.sql" />
+    <Build Include="dbo\Tables\AmexChgDataTAT.sql" />
+    <Build Include="dbo\Tables\InvComFreeText.sql" />
+    <Build Include="dbo\Tables\AreaTemplate.sql" />
+    <Build Include="dbo\Tables\CityDetails.sql" />
+    <Build Include="dbo\Tables\VISMA_Update_Acc_Supp.sql" />
+    <Build Include="dbo\Tables\MC_CPN_Coupon.sql" />
+    <Build Include="dbo\Tables\BookingType.sql" />
+    <Build Include="dbo\Tables\NewCost.sql" />
+    <Build Include="dbo\Tables\MC_Header_Record.sql" />
+    <Build Include="dbo\Tables\Instone_CRS_Acc_Conversion.sql" />
+    <Build Include="dbo\Tables\CBStatus.sql" />
+    <Build Include="dbo\Tables\Shell_Configuration.sql" />
+    <Build Include="dbo\Tables\HotelKeyword.sql" />
+    <Build Include="dbo\Tables\FldRestriction.sql" />
+    <Build Include="dbo\Tables\AmexChgDataTAF.sql" />
+    <Build Include="dbo\Tables\TRX_Invoice_Detail.sql" />
+    <Build Include="dbo\Tables\MC_Inv_Downloaded.sql" />
+    <Build Include="dbo\Tables\UnProcessRef.sql" />
+    <Build Include="dbo\Tables\BSPTicketType.sql" />
+    <Build Include="dbo\Tables\SupplierMerchantFee.sql" />
+    <Build Include="dbo\Tables\UserDefinedField.sql" />
+    <Build Include="dbo\Tables\City_Terrance.sql" />
+    <Build Include="dbo\Tables\BookingPageComment.sql" />
+    <Build Include="dbo\Tables\CharterAirLine.sql" />
+    <Build Include="dbo\Tables\Shell_Misc_Fee.sql" />
+    <Build Include="dbo\Tables\Raildet.sql" />
+    <Build Include="dbo\Tables\MC_Misc_Ref.sql" />
+    <Build Include="dbo\Tables\UserDefinedLookup.sql" />
+    <Build Include="dbo\Tables\AmexChgTTBT.sql" />
+    <Build Include="dbo\Tables\Itin_Confirmation_Comments.sql" />
+    <Build Include="dbo\Tables\MC_CorporateClient.sql" />
+    <Build Include="dbo\Tables\CarHire.sql" />
+    <Build Include="dbo\Tables\HSBC_Template.sql" />
+    <Build Include="dbo\Tables\HotelRateLookup.sql" />
+    <Build Include="dbo\Tables\Evolvi4_Rail_Hdr.sql" />
+    <Build Include="dbo\Tables\TRX_Download_Details.sql" />
+    <Build Include="dbo\Tables\HSBC_Template_Details.sql" />
+    <Build Include="dbo\Tables\HotelChainCode.sql" />
+    <Build Include="dbo\Tables\AmexChgTrailTFS.sql" />
+    <Build Include="dbo\Tables\Visa_Misc_Type.sql" />
+    <Build Include="dbo\Tables\MenuOption.sql" />
+    <Build Include="dbo\Tables\Airplus_Consol_DirectSuppl14.sql" />
+    <Build Include="dbo\Tables\Itin_Confirm_Comment_Table.sql" />
+    <Build Include="dbo\Tables\ExtnNewPass.sql" />
+    <Build Include="dbo\Tables\ParentCompany.sql" />
+    <Build Include="dbo\Tables\GenCustomer.sql" />
+    <Build Include="dbo\Tables\AmexChgTrailEOF1.sql" />
+    <Build Include="dbo\Tables\TRX_Payment_Details.sql" />
+    <Build Include="dbo\Tables\ATOL_Company.sql" />
+    <Build Include="dbo\Tables\TeamCompany.sql" />
+    <Build Include="dbo\Tables\TRX_Tax_Details.sql" />
+    <Build Include="dbo\Tables\ATOL_Html.sql" />
+    <Build Include="dbo\Tables\AmexChgTrailEOF2.sql" />
+    <Build Include="dbo\Tables\SRV_Login_Logout.sql" />
+    <Build Include="dbo\Tables\RepatriationDesc.sql" />
+    <Build Include="dbo\Tables\PCIDSSNewCost.sql" />
+    <Build Include="dbo\Tables\NextNo.sql" />
+    <Build Include="dbo\Tables\HandoffSetup.sql" />
+    <Build Include="dbo\Tables\BSPdet.sql" />
+    <Build Include="dbo\Tables\GenPhone.sql" />
+    <Build Include="dbo\Tables\HotelGroupHdr.sql" />
+    <Build Include="dbo\Tables\DinDload.sql" />
+    <Build Include="dbo\Tables\TRX_Fee_Supplier.sql" />
+    <Build Include="dbo\Tables\Visa_Setup.sql" />
+    <Build Include="dbo\Tables\BRS.sql" />
+    <Build Include="dbo\Tables\Account_CodeGrp.sql" />
+    <Build Include="dbo\Tables\TFeeType.sql" />
+    <Build Include="dbo\Tables\DinDldInvoice.sql" />
+    <Build Include="dbo\Tables\Airplus14Srv_Descrip_Ty_S.sql" />
+    <Build Include="dbo\Tables\ProcessRefund.sql" />
+    <Build Include="dbo\Tables\Report_Group.sql" />
+    <Build Include="dbo\Tables\TFeeOption.sql" />
+    <Build Include="dbo\Tables\BACardHdr.sql" />
+    <Build Include="dbo\Tables\Shell_Header.sql" />
+    <Build Include="dbo\Tables\Invoice_Authoised_Date.sql" />
+    <Build Include="dbo\Tables\TableLastNo.sql" />
+    <Build Include="dbo\Tables\visa_Client_Setup.sql" />
+    <Build Include="dbo\Tables\Tagetik_Company_Code.sql" />
+    <Build Include="dbo\Tables\InvDetails.sql" />
+    <Build Include="dbo\Tables\RetCustom.sql" />
+    <Build Include="dbo\Tables\PackflhtItinerary.sql" />
+    <Build Include="dbo\Tables\AccountEmail.sql" />
+    <Build Include="dbo\Tables\HotelGroupDet.sql" />
+    <Build Include="dbo\Tables\DinerDownload.sql" />
+    <Build Include="dbo\Tables\Visa_User_Login.sql" />
+    <Build Include="dbo\Tables\BSP_Classes.sql" />
+    <Build Include="dbo\Tables\Costcen.sql" />
+    <Build Include="dbo\Tables\Loginus.sql" />
+    <Build Include="dbo\Tables\Amex_Asia_Setup.sql" />
+    <Build Include="dbo\Tables\BSPFareConstruction.sql" />
+    <Build Include="dbo\Tables\BACardDet.sql" />
+    <Build Include="dbo\Tables\BarConfigure.sql" />
+    <Build Include="dbo\Tables\Country.sql" />
+    <Build Include="dbo\Tables\Visa_File_Location.sql" />
+    <Build Include="dbo\Tables\Account_CC1_Address.sql" />
+    <Build Include="dbo\Tables\Airplus14Srv_Descrip_Ty_F.sql" />
+    <Build Include="dbo\Tables\TRX_Carrier.sql" />
+    <Build Include="dbo\Tables\Avis_Account_Mapping.sql" />
+    <Build Include="dbo\Tables\VirginDownload.sql" />
+    <Build Include="dbo\Tables\BarCorporateClient.sql" />
+    <Build Include="dbo\Tables\Audit.sql" />
+    <Build Include="dbo\Tables\Airplus14Srv_Descrip_Ty_O.sql" />
+    <Build Include="dbo\Tables\TRX_Client.sql" />
+    <Build Include="dbo\Tables\CCChargesException.sql" />
+    <Build Include="dbo\Tables\PER_Auth.sql" />
+    <Build Include="dbo\Tables\ChRecIDetails.sql" />
+    <Build Include="dbo\Tables\TRX_TransSeg_RailSupp.sql" />
+    <Build Include="dbo\Tables\TRX_Hotel_Property.sql" />
+    <Build Include="dbo\Tables\City.sql" />
+    <Build Include="dbo\Tables\HSBC_Configure.sql" />
+    <Build Include="dbo\Tables\TRX_Misc_Merge_into_Cost.sql" />
+    <Build Include="dbo\Tables\QualityErrHdr.sql" />
+    <Build Include="dbo\Tables\test.sql" />
+    <Build Include="dbo\Tables\BarDload.sql" />
+    <Build Include="dbo\Tables\HSBC_CorporateClient.sql" />
+    <Build Include="dbo\Tables\Access_ATP_SaleRec.sql" />
+    <Build Include="dbo\Tables\Bookdata.sql" />
+    <Build Include="dbo\Tables\Disco_Lite_Group_Reporting.sql" />
+    <Build Include="dbo\Tables\TranFeeAddonDetailsPerSupplier.sql" />
+    <Build Include="dbo\Tables\NVMIRHdr.sql" />
+    <Build Include="dbo\Tables\HSBC_Misc_Ref.sql" />
+    <Build Include="dbo\Tables\Access_ATP_Purchases.sql" />
+    <Build Include="dbo\Tables\Visa_Header.sql" />
+    <Build Include="dbo\Tables\CompRebate.sql" />
+    <Build Include="dbo\Tables\Manila_Header.sql" />
+    <Build Include="dbo\Tables\HSBC_Download.sql" />
+    <Build Include="dbo\Tables\Access_ATP_NomJournal.sql" />
+    <Build Include="dbo\Tables\TranFeeAddonSetupPerSupplier.sql" />
+    <Build Include="dbo\Tables\BookDescription.sql" />
+    <Build Include="dbo\Tables\BRticket.sql" />
+    <Build Include="dbo\Tables\BR.sql" />
+    <Build Include="dbo\Tables\BarDldInvoice.sql" />
+    <Build Include="dbo\Tables\Commission_BreakDown.sql" />
+    <Build Include="dbo\Tables\TranFeeSetupPerTAB.sql" />
+    <Build Include="dbo\Tables\AccountBookedby.sql" />
+    <Build Include="dbo\Tables\Clastrv.sql" />
+    <Build Include="dbo\Tables\HSBC_Inv_Downloaded.sql" />
+    <Build Include="dbo\Tables\PackCommVoucher.sql" />
+    <Build Include="dbo\Tables\NVMIRData.sql" />
+    <Build Include="dbo\Tables\BarCharVOL.sql" />
+    <Build Include="dbo\Tables\HSBC_Header_Record.sql" />
+    <Build Include="dbo\Tables\FormatFld.sql" />
+    <Build Include="dbo\Tables\RetOtherLang.sql" />
+    <Build Include="dbo\Tables\ServerTicketStock.sql" />
+    <Build Include="dbo\Tables\Visa_Transaction.sql" />
+    <Build Include="dbo\Tables\GrpSurface.sql" />
+    <Build Include="dbo\Tables\RecCC.sql" />
+    <Build Include="dbo\Tables\IBankDetails.sql" />
+    <Build Include="dbo\Tables\HSBC_MIS_Data_Record.sql" />
+    <Build Include="dbo\Tables\RetailCategory.sql" />
+    <Build Include="dbo\Tables\AirplusAccount.sql" />
+    <Build Include="dbo\Tables\Class_Description.sql" />
+    <Build Include="dbo\Tables\NVMIRA14.sql" />
+    <Build Include="dbo\Tables\IBankHeader.sql" />
+    <Build Include="dbo\Tables\SuppHeader.sql" />
+    <Build Include="dbo\Tables\BarCharUHK.sql" />
+    <Build Include="dbo\Tables\HSBC_CPN_Coupon.sql" />
+    <Build Include="dbo\Tables\MessofDay.sql" />
+    <Build Include="dbo\Tables\PolicyPax.sql" />
+    <Build Include="dbo\Tables\Visa_Transaction_Line.sql" />
+    <Build Include="dbo\Tables\License.sql" />
+    <Build Include="dbo\Tables\Airplus14Enrichment.sql" />
+    <Build Include="dbo\Tables\AirplusInvlist13En.sql" />
+    <Build Include="dbo\Tables\HSBC_TLR_Tailer_Record.sql" />
+    <Build Include="dbo\Tables\FlightPassenger.sql" />
+    <Build Include="dbo\Tables\Airplus14Srv_Descrip_Ty_A_K.sql" />
+    <Build Include="dbo\Tables\NewPass.sql" />
+    <Build Include="dbo\Tables\AccNotePad.sql" />
+    <Build Include="dbo\Tables\ErrorLog.sql" />
+    <Build Include="dbo\Tables\CommChanges.sql" />
+    <Build Include="dbo\Tables\SupplierTaxComm.sql" />
+    <Build Include="dbo\Tables\BarCharSegment.sql" />
+    <Build Include="dbo\Tables\Hotel_Invoice.sql" />
+    <Build Include="dbo\Tables\Instruction.sql" />
+    <Build Include="dbo\Tables\HotelSupplier.sql" />
+    <Build Include="dbo\Tables\CarHire_Invoice.sql" />
+    <Build Include="dbo\Tables\Insuranc.sql" />
+    <Build Include="dbo\Tables\Airplus14Srv_Descrip_Ty_T.sql" />
+    <Build Include="dbo\Tables\ConsolidateInvDetails.sql" />
+    <Build Include="dbo\Tables\Accomm.sql" />
+    <Build Include="dbo\Tables\BarInvoiceHdr.sql" />
+    <Build Include="dbo\Tables\GenLetter.sql" />
+    <Build Include="dbo\Tables\AmexBTA_Client_Template_Header.sql" />
+    <Build Include="dbo\Tables\AmexSetup.sql" />
+    <Build Include="dbo\Tables\Amex_205_InvHeader.sql" />
+    <Build Include="dbo\Tables\ConsolidateInvoiceChangeDate.sql" />
+    <Build Include="dbo\Tables\Galileo_File_List.sql" />
+    <Build Include="dbo\Tables\InsuranceProducts.sql" />
+    <Build Include="dbo\Tables\Airplus14Srv_Descrip_Ty_C.sql" />
+    <Build Include="dbo\Tables\Amex_205_InvFooter.sql" />
+    <Build Include="dbo\Tables\Consolidate_Invoice_Acc_Config.sql" />
+    <Build Include="dbo\Tables\Department.sql" />
+    <Build Include="dbo\Tables\Errmsg.sql" />
+    <Build Include="dbo\Tables\Company.sql" />
+    <Build Include="dbo\Tables\BarCharUTL.sql" />
+    <Build Include="dbo\Tables\PER_2_Inv.sql" />
+    <Build Include="dbo\Tables\AmexBTA_Client_Template_Detail.sql" />
+    <Build Include="dbo\Tables\TicktLst.sql" />
+    <Build Include="dbo\Tables\Automate_Setup_Invoice_Hdr.sql" />
+    <Build Include="dbo\Tables\BSPticket.sql" />
+    <Build Include="dbo\Tables\AmexFTP.sql" />
+    <Build Include="dbo\Tables\BarCharSegmentExtended.sql" />
+    <Build Include="dbo\Tables\Printer.sql" />
+    <Build Include="dbo\Tables\BnchDepart.sql" />
+    <Build Include="dbo\Tables\BarInvoiceTrailer.sql" />
+    <Build Include="dbo\Tables\RepMonitor.sql" />
+    <Build Include="dbo\Tables\ATOLDetails.sql" />
+    <Build Include="dbo\Tables\TRX_Configure_per_Account.sql" />
+    <Build Include="dbo\Tables\GrpInsurance.sql" />
+    <Build Include="dbo\Tables\Schedule_BSP.sql" />
+    <Build Include="dbo\Tables\Hotelst.sql" />
+    <Build Include="dbo\Tables\Galileo_RAM_Setup.sql" />
+    <Build Include="dbo\Tables\AmexChgDataTAS.sql" />
+    <Build Include="dbo\Tables\Airplus14Srv_Descrip_Ty_H.sql" />
+    <Build Include="dbo\Tables\Automate_Setup_Inv_Account.sql" />
+    <Build Include="dbo\Tables\BarInvoiceMIS.sql" />
+    <Build Include="dbo\Tables\TAMS_Acc_Dep.sql" />
+    <Build Include="dbo\Tables\AccCCList.sql" />
+    <Build Include="dbo\Tables\TAMS_Setup.sql" />
+    <Build Include="dbo\Tables\TotalDaily.sql" />
+    <Build Include="dbo\Tables\GrpBSP.sql" />
+    <Build Include="dbo\Tables\UserCount.sql" />
+    <Build Include="dbo\Tables\AirplusConfig.sql" />
+    <Build Include="dbo\Tables\Report_Name.sql" />
+    <Build Include="dbo\Tables\Customer.sql" />
+    <Build Include="dbo\Tables\WinTIHdr.sql" />
+    <Build Include="dbo\Tables\TRX_Transportation_Seqment.sql" />
+    <Build Include="dbo\Tables\ELAVON_Error_File.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgDataTAS.sql" />
+    <Build Include="dbo\Tables\SysDef.sql" />
+    <Build Include="dbo\Tables\dual.sql" />
+    <Build Include="dbo\Tables\Package.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgHdrVol1.sql" />
+    <Build Include="dbo\Tables\Manila_Account_Config.sql" />
+    <Build Include="dbo\Tables\Access_ATP_Misc_Ana.sql" />
+    <Build Include="dbo\Tables\TicktBatch.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgHdrHdr1.sql" />
+    <Build Include="dbo\Tables\AmexDldlinvoice.sql" />
+    <Build Include="dbo\Tables\ELAVON_Template_Details.sql" />
+    <Build Include="dbo\Tables\BSPTaxBreakDown.sql" />
+    <Build Include="dbo\Tables\DepList.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgHdrHdr2.sql" />
+    <Build Include="dbo\Tables\VISMA_CC.sql" />
+    <Build Include="dbo\Tables\Manila_Config.sql" />
+    <Build Include="dbo\Tables\PER_PNR_Details.sql" />
+    <Build Include="dbo\Tables\tsddefaults.sql" />
+    <Build Include="dbo\Tables\Conferma_User_Login.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgHdrTFH.sql" />
+    <Build Include="dbo\Tables\ELAVON_Template.sql" />
+    <Build Include="dbo\Tables\GalInitials.sql" />
+    <Build Include="dbo\Tables\ATOLHeader.sql" />
+    <Build Include="dbo\Tables\PaymentSupplier.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgHdrTHB.sql" />
+    <Build Include="dbo\Tables\WEB_SessionLogHeader.sql" />
+    <Build Include="dbo\Tables\BusCC.sql" />
+    <Build Include="dbo\Tables\TRX_References.sql" />
+    <Build Include="dbo\Tables\Airplus_Misc.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgTTBT.sql" />
+    <Build Include="dbo\Tables\AirplusCurrencyPartner14.sql" />
+    <Build Include="dbo\Tables\ELAVON_Account_Reference.sql" />
+    <Build Include="dbo\Tables\GalExchange.sql" />
+    <Build Include="dbo\Tables\BnchEAttendence.sql" />
+    <Build Include="dbo\Tables\PER_PNR.sql" />
+    <Build Include="dbo\Tables\SystemInvComment.sql" />
+    <Build Include="dbo\Tables\AutoCreInv.sql" />
+    <Build Include="dbo\Tables\QualityErrorDetails.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgTrailTFS.sql" />
+    <Build Include="dbo\Tables\AirplusFooter14.sql" />
+    <Build Include="dbo\Tables\PER_Date_Loaded.sql" />
+    <Build Include="dbo\Tables\tsdhandofflines.sql" />
+    <Build Include="dbo\Tables\BarInvoiceCPN.sql" />
+    <Build Include="dbo\Tables\TRX_Account_References.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgTrailEOF1.sql" />
+    <Build Include="dbo\Tables\ELA_FTR_File_Trailer_Record.sql" />
+    <Build Include="dbo\Tables\BusPaxFreqTraveller.sql" />
+    <Build Include="dbo\Tables\Access_ATP_Supplier.sql" />
+    <Build Include="dbo\Tables\Packflht.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgTrailEOF2.sql" />
+    <Build Include="dbo\Tables\AirplusHeader14.sql" />
+    <Build Include="dbo\Tables\JobProgramList.sql" />
+    <Build Include="dbo\Tables\Misc.sql" />
+    <Build Include="dbo\Tables\DB_Comments.sql" />
+    <Build Include="dbo\Tables\tsdhandofflinestemp.sql" />
+    <Build Include="dbo\Tables\Access_ATP_Customer.sql" />
+    <Build Include="dbo\Tables\TRX_User_Defined.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgDataTAB.sql" />
+    <Build Include="dbo\Tables\AirplusInvlist14.sql" />
+    <Build Include="dbo\Tables\ELA_TTR_TXN_Trailer_Record.sql" />
+    <Build Include="dbo\Tables\SchemePoint.sql" />
+    <Build Include="dbo\Tables\EmailSetup.sql" />
+    <Build Include="dbo\Tables\JobProgramSource.sql" />
+    <Build Include="dbo\Tables\GalHotelRate.sql" />
+    <Build Include="dbo\Tables\New_Taxes.sql" />
+    <Build Include="dbo\Tables\EmpDepartment.sql" />
+    <Build Include="dbo\Tables\PayMethodChanges.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgDataTAA.sql" />
+    <Build Include="dbo\Tables\Airplus14_Selected_Invoices.sql" />
+    <Build Include="dbo\Tables\AmexLowCost.sql" />
+    <Build Include="dbo\Tables\JobSchdule.sql" />
+    <Build Include="dbo\Tables\tsdtemp1.sql" />
+    <Build Include="dbo\Tables\CCChargesPerCC.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgDataTAM.sql" />
+    <Build Include="dbo\Tables\Account_Print_Inv.sql" />
+    <Build Include="dbo\Tables\GalHotelCategory.sql" />
+    <Build Include="dbo\Tables\Cars.sql" />
+    <Build Include="dbo\Tables\Fee_Inv_Consolidate.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgDataTAT.sql" />
+    <Build Include="dbo\Tables\Airplus_14_Car_Class_Codes.sql" />
+    <Build Include="dbo\Tables\VisaPassport.sql" />
+    <Build Include="dbo\Tables\Evolvi__Reason_Codes.sql" />
+    <Build Include="dbo\Tables\GroupAcc.sql" />
+    <Build Include="dbo\Tables\UserSetup.sql" />
+    <Build Include="dbo\Tables\Inv_by_Depart_Hdr.sql" />
+    <Build Include="dbo\Tables\tsdtemp2.sql" />
+    <Build Include="dbo\Tables\Deleted_MIR_AIR.sql" />
+    <Build Include="dbo\Tables\GalCarVendor.sql" />
+    <Build Include="dbo\Tables\VeType.sql" />
+    <Build Include="dbo\Tables\NetFareCosting.sql" />
+    <Build Include="dbo\Tables\Fee_Inv_Consolidate_Config.sql" />
+    <Build Include="dbo\Tables\Access_ATP_SaleInv.sql" />
+    <Build Include="dbo\Tables\tsdtemp3.sql" />
+    <Build Include="dbo\Tables\TranFeeAcc.sql" />
+    <Build Include="dbo\Tables\Reason.sql" />
+    <Build Include="dbo\Tables\TRX_Invoice_Header.sql" />
+    <Build Include="dbo\Tables\TEMP_8606511.sql" />
+    <Build Include="dbo\Tables\Rail_Details_Ticket.sql" />
+    <Build Include="dbo\Tables\SetupParams.sql" />
+    <Build Include="dbo\Tables\tsdtemp4.sql" />
+    <Build Include="dbo\Tables\SRV_Logical_Name.sql" />
+    <Build Include="dbo\Tables\Access_Department_Code.sql" />
+    <Build Include="dbo\Tables\Avis_Configuration.sql" />
+    <Build Include="dbo\Tables\Area.sql" />
+    <Build Include="dbo\Tables\Web_Dash_Board_Acc.sql" />
+    <Build Include="dbo\Tables\TranNonStaAcc.sql" />
+    <Build Include="dbo\Tables\JobQueue.sql" />
+    <Build Include="dbo\Tables\PackAcc.sql" />
+    <Build Include="dbo\Tables\TRX_Exclude_Account.sql" />
+    <Build Include="dbo\Tables\ELA_TDR_TXN_Detail_Record.sql" />
+    <Build Include="dbo\Tables\Currency_Log.sql" />
+    <Build Include="dbo\Tables\GrpTour.sql" />
+    <Build Include="dbo\Tables\FeeType.sql" />
+    <Build Include="dbo\Tables\NewCoTck.sql" />
+    <Build Include="dbo\Tables\TAMS_Room_Type.sql" />
+    <Build Include="dbo\Tables\TranFee_Invoice.sql" />
+    <Build Include="dbo\Tables\Access_ATP_Configuration.sql" />
+    <Build Include="dbo\Tables\MC_MIS_Data_Record.sql" />
+    <Build Include="dbo\Tables\TAMS_Meal_Type.sql" />
+    <Build Include="dbo\Tables\T_Branch_Range_Supp_Supp.sql" />
+    <Build Include="dbo\Tables\ELAVON_Conifguration.sql" />
+    <Build Include="dbo\Tables\TranNOccu.sql" />
+    <Build Include="dbo\Tables\SuppPhone.sql" />
+    <Build Include="dbo\Tables\VISMA_Voucher_Type.sql" />
+    <Build Include="dbo\Tables\Post1.sql" />
+    <Build Include="dbo\Tables\Archive_Table_Fields_List.sql" />
+    <Build Include="dbo\Tables\TourSetup.sql" />
+    <Build Include="dbo\Tables\WinConfigure.sql" />
+    <Build Include="dbo\Tables\FrequentFlyerNoTrips.sql" />
+    <Build Include="dbo\Tables\PackAcFacilties.sql" />
+    <Build Include="dbo\Tables\GalMonitorChanges.sql" />
+    <Build Include="dbo\Tables\ATP_Retail_Payment_Method.sql" />
+    <Build Include="dbo\Tables\VISMA_Misc.sql" />
+    <Build Include="dbo\Tables\TRX_Car_Segment.sql" />
+    <Build Include="dbo\Tables\InsurancePolicy.sql" />
+    <Build Include="dbo\Tables\ELAVON_Download.sql" />
+    <Build Include="dbo\Tables\Access_ATP_Ret_PLPayment.sql" />
+    <Build Include="dbo\Tables\VISMA_VAT.sql" />
+    <Build Include="dbo\Tables\TourMiscTyNotShown.sql" />
+    <Build Include="dbo\Tables\WinMerchant.sql" />
+    <Build Include="dbo\Tables\HotelRates.sql" />
+    <Build Include="dbo\Tables\TranFeeSetup.sql" />
+    <Build Include="dbo\Tables\Access_ATP_Ret_Purchases.sql" />
+    <Build Include="dbo\Tables\VISMA_Import_File.sql" />
+    <Build Include="dbo\Tables\Schedule_Inv_Email.sql" />
+    <Build Include="dbo\Tables\VAT.sql" />
+    <Build Include="dbo\Tables\EmailTextSelection.sql" />
+    <Build Include="dbo\Tables\Avis_Header.sql" />
+    <Build Include="dbo\Tables\Carbon_Emission.sql" />
+    <Build Include="dbo\Tables\SysParm.sql" />
+    <Build Include="dbo\Tables\TRX_Hotel_Segment.sql" />
+    <Build Include="dbo\Tables\GrpSuppliers.sql" />
+    <Build Include="dbo\Tables\WinNotIncludeCC.sql" />
+    <Build Include="dbo\Tables\InsurancePax.sql" />
+    <Build Include="dbo\Tables\BSPTranFeeMat.sql" />
+    <Build Include="dbo\Tables\Access_Allocation_Table.sql" />
+    <Build Include="dbo\Tables\mail.sql" />
+    <Build Include="dbo\Tables\PackOther.sql" />
+    <Build Include="dbo\Tables\Tick.sql" />
+    <Build Include="dbo\Tables\ELA_THR_TXN_Header_Record.sql" />
+    <Build Include="dbo\Tables\AirplusHeader.sql" />
+    <Build Include="dbo\Tables\Fee_Inv_Consolidate_Details.sql" />
+    <Build Include="dbo\Tables\Branch_Version.sql" />
+    <Build Include="dbo\Tables\ReceptDetails.sql" />
+    <Build Include="dbo\Tables\ConsolTranFeeMat.sql" />
+    <Build Include="dbo\Tables\ZAB.sql" />
+    <Build Include="dbo\Tables\Airline.sql" />
+    <Build Include="dbo\Tables\Access_ATP_PLPayment.sql" />
+    <Build Include="dbo\Tables\TAMS_Details.sql" />
+    <Build Include="dbo\Tables\AccParam.sql" />
+    <Build Include="dbo\Tables\ATOL_Booking_Information.sql" />
+    <Build Include="dbo\Tables\InBooking.sql" />
+    <Build Include="dbo\Tables\Fee_Inv_Consoliudate_Automatio.sql" />
+    <Build Include="dbo\Tables\ELA_FHR_File_Header_Rec.sql" />
+    <Build Include="dbo\Tables\RailTranFeeMat.sql" />
+    <Build Include="dbo\Tables\IPTRate.sql" />
+    <Build Include="dbo\Tables\New_Trans_Fee_Matrix.sql" />
+    <Build Include="dbo\Tables\Diners31_Download.sql" />
+    <Build Include="dbo\Tables\RepLayout.sql" />
+    <Build Include="dbo\Tables\BnchEmp.sql" />
+    <Build Include="dbo\Tables\Bar_Template.sql" />
+    <Build Include="dbo\Tables\HotelTranFeeMat.sql" />
+    <Build Include="dbo\Tables\WEB_Disco_Work.sql" />
+    <Build Include="dbo\Tables\Brochure.sql" />
+    <Build Include="dbo\Tables\AccCurBalance.sql" />
+    <Build Include="dbo\Tables\Diners31_Sent_Invoices.sql" />
+    <Build Include="dbo\Tables\Evolvi4_Misc.sql" />
+    <Build Include="dbo\Tables\Bar_Template_Details.sql" />
+    <Build Include="dbo\Tables\OutputDetails.sql" />
+    <Build Include="dbo\Tables\WinTIDetails.sql" />
+    <Build Include="dbo\Tables\GrpPackage.sql" />
+    <Build Include="dbo\Tables\CarHireTranFeeMat.sql" />
+    <Build Include="dbo\Tables\Checklst.sql" />
+    <Build Include="dbo\Tables\HotCar_Setup.sql" />
+    <Build Include="dbo\Tables\VIBE_Client_Setup.sql" />
+    <Build Include="dbo\Tables\Diners31_TFH.sql" />
+    <Build Include="dbo\Tables\GalAllowsMPD.sql" />
+    <Build Include="dbo\Tables\Avis_Detail.sql" />
+    <Build Include="dbo\Tables\Hotel_Booking_Type.sql" />
+    <Build Include="dbo\Tables\AccBalance.sql" />
+    <Build Include="dbo\Tables\StatStopSrv.sql" />
+    <Build Include="dbo\Tables\Access_Configuration.sql" />
+    <Build Include="dbo\Tables\Diners31CurrencyPartner.sql" />
+    <Build Include="dbo\Tables\TRX_Account_Grouping.sql" />
+    <Build Include="dbo\Tables\ELA_Invoice_Download.sql" />
+    <Build Include="dbo\Tables\InsuranceTranFeeMat.sql" />
+    <Build Include="dbo\Tables\AccType.sql" />
+    <Build Include="dbo\Tables\BaseCurrency.sql" />
+    <Build Include="dbo\Tables\HotCar_Header.sql" />
+    <Build Include="dbo\Tables\VIBE_Setup.sql" />
+    <Build Include="dbo\Tables\Diners31_TFS.sql" />
+    <Build Include="dbo\Tables\retcustom1.sql" />
+    <Build Include="dbo\Tables\ServerLog.sql" />
+    <Build Include="dbo\Tables\Access_Area_Ana.sql" />
+    <Build Include="dbo\Tables\MiscTransfer.sql" />
+    <Build Include="dbo\Tables\PaxDesc.sql" />
+    <Build Include="dbo\Tables\RetSchPDetail.sql" />
+    <Build Include="dbo\Tables\PackageTranFeeMat.sql" />
+    <Build Include="dbo\Tables\InvoiceComment.sql" />
+    <Build Include="dbo\Tables\EmailLogFile.sql" />
+    <Build Include="dbo\Tables\MC_Template.sql" />
+    <Build Include="dbo\Tables\Amex_Supplier_Setup.sql" />
+    <Build Include="dbo\Tables\Diners31_TBH.sql" />
+    <Build Include="dbo\Tables\Delete_Booking.sql" />
+    <Build Include="dbo\Tables\MC_Template_Details.sql" />
+    <Build Include="dbo\Tables\SrvLogFiles.sql" />
+    <Build Include="dbo\Tables\Access_Purchases.sql" />
+    <Build Include="dbo\Tables\Fuck.sql" />
+    <Build Include="dbo\Tables\MiscTranFeeMat.sql" />
+    <Build Include="dbo\Tables\RecComment.sql" />
+    <Build Include="dbo\Tables\ReceDPay.sql" />
+    <Build Include="dbo\Tables\Amex_205_ChgDataTAF.sql" />
+    <Build Include="dbo\Tables\Diners31_TAB.sql" />
+    <Build Include="dbo\Tables\CFIM_DI_Entries.sql" />
+    <Build Include="dbo\Tables\SrvInvLog.sql" />
+    <Build Include="dbo\Tables\Access_Inv_Post_Details.sql" />
+    <Build Include="dbo\Tables\GrpMisc.sql" />
+    <Build Include="dbo\Tables\FeeFlightNo.sql" />
+    <Build Include="dbo\Tables\Chess.sql" />
+    <Build Include="dbo\Tables\BookStatus.sql" />
+    <Build Include="dbo\Tables\DXBC2266.sql" />
+    <Build Include="dbo\Tables\Diners31_TAA.sql" />
+    <Build Include="dbo\Tables\HotelCost.sql" />
+    <Build Include="dbo\Tables\HotCar_Details.sql" />
+    <Build Include="dbo\Tables\PrinterRouter.sql" />
+    <Build Include="dbo\Tables\TRX_Configuration.sql" />
+    <Build Include="dbo\Tables\InvAddress.sql" />
+    <Build Include="dbo\Tables\TAMS_Header.sql" />
+    <Build Include="dbo\Tables\Groupcode.sql" />
+    <Build Include="dbo\Tables\RetSaleAdd.sql" />
+    <Build Include="dbo\Tables\AreaPriority.sql" />
+    <Build Include="dbo\Tables\HotelDetails.sql" />
+    <Build Include="dbo\Tables\FlightcheckTime.sql" />
+    <Build Include="dbo\Tables\MC_Download.sql" />
+    <Build Include="dbo\Tables\Diners31_TAO.sql" />
+    <Build Include="dbo\Tables\retcustomold.sql" />
+    <Build Include="dbo\Tables\GrpCarHire.sql" />
+    <Build Include="dbo\Tables\Airplus_Account_Defaults_14.sql" />
+    <Build Include="dbo\Tables\Soundf.sql" />
+    <Build Include="dbo\Tables\Amex_205_InvDetails.sql" />
+    <Build Include="dbo\Tables\ELA_CRR_Diners_Aux_Record.sql" />
+    <Build Include="dbo\Tables\PreTranFee.sql" />
+    <Build Include="dbo\Tables\Diners31_TBT.sql" />
+    <Build Include="dbo\Tables\TRX_Download_Header.sql" />
+    <Build Include="dbo\Tables\TAMS_Client_Setup.sql" />
+    <Build Include="dbo\Tables\AirplusAccount14.sql" />
+    <Build Include="dbo\Tables\Ddecom.sql" />
+    <Build Include="dbo\Tables\RetSalePax.sql" />
+    <Build Include="dbo\Tables\InvUniCom.sql" />
+    <Build Include="dbo\Tables\RepGrpName.sql" />
+    <Build Include="dbo\Tables\NotePad.sql" />
+    <Build Include="dbo\Tables\Schedule_Inv_Email_Record.sql" />
+    <Build Include="dbo\Tables\VISMA_Posting.sql" />
+    <Build Include="dbo\Tables\RecTakeon.sql" />
+    <Build Include="dbo\Tables\Manila_File_Import.sql" />
+    <Build Include="dbo\Tables\MarketLeads.sql" />
+    <Build Include="dbo\Tables\Ddefs.sql" />
+    <Build Include="dbo\Tables\MiscTynotshowName.sql" />
+    <Build Include="dbo\Tables\Account_Group.sql" />
+    <Build Include="dbo\Tables\Amex_Asia_Download.sql" />
+    <Build Include="dbo\Tables\Travel.sql" />
+    <Build Include="dbo\Tables\ELA_AAR_Airline_Aux_Record.sql" />
+    <Build Include="dbo\Tables\RepGroupAccount.sql" />
+    <Build Include="dbo\Tables\Air_Classes.sql" />
+    <Build Include="dbo\Tables\RoomType.sql" />
+    <Build Include="dbo\Tables\Archive_Booking.sql" />
+    <Build Include="dbo\Tables\Commedia_test_Log.sql" />
+    <Build Include="dbo\Tables\TRX_Run_for_Several_Account.sql" />
+    <Build Include="dbo\Tables\Ddesize.sql" />
+    <Build Include="dbo\Tables\AirplusInvlist.sql" />
+    <Build Include="dbo\Tables\ConsolidateInvHeader.sql" />
+    <Build Include="dbo\Tables\Misc_Supplier.sql" />
+    <Build Include="dbo\Tables\AddFacilities.sql" />
+    <Build Include="dbo\Tables\EIP_Download.sql" />
+    <Build Include="dbo\Tables\Ddedoc.sql" />
+    <Build Include="dbo\Tables\AirplusInvlist13.sql" />
+    <Build Include="dbo\Tables\Access_ATP_HorisionBank.sql" />
+    <Build Include="dbo\Tables\ReNotePad.sql" />
+    <Build Include="dbo\Tables\ELA_HAR_Hotel_Addendum_Record.sql" />
+    <Build Include="dbo\Tables\Meal.sql" />
+    <Build Include="dbo\Tables\QualityAccountSetup.sql" />
+    <Build Include="dbo\Tables\InvDeposit.sql" />
+    <Build Include="dbo\Tables\MarketAccMemo.sql" />
+    <Build Include="dbo\Tables\Ddemarks.sql" />
+    <Build Include="dbo\Tables\NextGenRef.sql" />
+    <Build Include="dbo\Tables\Amex_Asia_ClientTemplateHdr.sql" />
+    <Build Include="dbo\Tables\Invoices_to_Allocated.sql" />
+    <Build Include="dbo\Tables\SaleHead.sql" />
+    <Build Include="dbo\Tables\CreditCard.sql" />
+    <Build Include="dbo\Tables\Schedule_Inv_List.sql" />
+    <Build Include="dbo\Tables\Access_ATP_No_PL_Comm_Supplier.sql" />
+    <Build Include="dbo\Tables\AmexInvFooter.sql" />
+    <Build Include="dbo\Tables\Currency.sql" />
+    <Build Include="dbo\Tables\AccQuality.sql" />
+    <Build Include="dbo\Tables\DinerHeader.sql" />
+    <Build Include="dbo\Tables\TicketType.sql" />
+    <Build Include="dbo\Tables\Template.sql" />
+    <Build Include="dbo\Tables\InsuPassenger.sql" />
+    <Build Include="dbo\Tables\ELAVON_DinerFooter.sql" />
+    <Build Include="dbo\Tables\AmexInvDetails.sql" />
+    <Build Include="dbo\Tables\VoucherDetails.sql" />
+    <Build Include="dbo\Tables\PolicyType.sql" />
+    <Build Include="dbo\Tables\Account_Inv_Address.sql" />
+    <Build Include="dbo\Tables\PreChargesException.sql" />
+    <Build Include="dbo\Tables\CashAllocDet.sql" />
+    <Build Include="dbo\Tables\ELA_FHR_File_Header_Record.sql" />
+    <Build Include="dbo\Tables\Void_FRom_Tins_Report.sql" />
+    <Build Include="dbo\Tables\MarketCustomer.sql" />
+    <Build Include="dbo\Tables\AmexInvHeader.sql" />
+    <Build Include="dbo\Tables\SalChklst.sql" />
+    <Build Include="dbo\Tables\TINS_Header.sql" />
+    <Build Include="dbo\Tables\ChRecInv.sql" />
+    <Build Include="dbo\Tables\ELAVON_InvoiceFileTrailer.sql" />
+    <Build Include="dbo\Tables\ELA_SBR_Settlemnt_Batch_Rec.sql" />
+    <Build Include="dbo\Tables\Configure_TINS_Report.sql" />
+    <Build Include="dbo\Tables\TimeCalc.sql" />
+    <Build Include="dbo\Tables\tsdsubsetinvoices.sql" />
+    <Build Include="dbo\Tables\ELAVON_InvoiceFileHeader.sql" />
+    <Build Include="dbo\Tables\ATOLComments.sql" />
+    <Build Include="dbo\Tables\WEB_User_Name.sql" />
+    <Build Include="dbo\Tables\XML_Shell_Counters.sql" />
+    <Build Include="dbo\Tables\AmexDload.sql" />
+    <Build Include="dbo\Tables\GalCost.sql" />
+    <Build Include="dbo\Tables\ELAVON_Invoice_File_Detail.sql" />
+    <Build Include="dbo\Tables\ELA_THR_TXN_Header_Rec.sql" />
+    <Build Include="dbo\Tables\IBank_Conf.sql" />
+    <Build Include="dbo\Tables\CarrierAtol.sql" />
+    <Build Include="dbo\Views\count_rows_per_table.sql" />
+    <Build Include="dbo\Views\costing_view.sql" />
+    <Build Include="Security\discovery1.sql" />
+    <Build Include="Security\alex.sql" />
+    <Build Include="Security\Discovery.sql" />
+    <Build Include="Security\Terrance.sql" />
+    <Build Include="Security\Great Yarmouth - Accounts.sql" />
+    <Build Include="Security\Terence.sql" />
+    <Build Include="Security\Mike.sql" />
+    <Build Include="Security\discovery2.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Stored Procedures\copy_bsp_flight.sql" />
+    <Build Include="dbo\Stored Procedures\update_sales_header_totals.sql" />
+    <Build Include="dbo\Stored Procedures\update_sales_header_dependant_pages.sql" />
+    <Build Include="dbo\Stored Procedures\createtsdhandofflinesori.sql" />
+    <Build Include="dbo\Stored Procedures\createtsdimportsql2.sql" />
+    <Build Include="dbo\Stored Procedures\createcurrencyupdatecommands.sql" />
+    <Build Include="dbo\Stored Procedures\createtsdhandofflines.sql" />
+    <Build Include="dbo\Stored Procedures\writetsdhandofflines.sql" />
+    <Build Include="dbo\Stored Procedures\createtsdhandoff.sql" />
+    <Build Include="dbo\Stored Procedures\createtsdimportsql.sql" />
+    <Build Include="dbo\Stored Procedures\travelsystems_01.sql" />
+    <Build Include="dbo\Stored Procedures\checktsddata.sql" />
+    <Build Include="dbo\Stored Procedures\createtsdhandofflinessubset.sql" />
+    <Build Include="dbo\User Defined Types\BSPTable_Type.sql" />
+    <Build Include="Security\alex_1.sql" />
+    <Build Include="Security\Discovery_1.sql" />
+    <Build Include="Security\discovery1_1.sql" />
+    <Build Include="Security\Great Yarmouth - Accounts_1.sql" />
+    <Build Include="Security\Mike_1.sql" />
+    <Build Include="Security\Terence_1.sql" />
+    <Build Include="Security\Terrance_1.sql" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,3 @@
+﻿CREATE USER [Terrance] WITHOUT LOGIN
+    WITH DEFAULT_SCHEMA = [Terrance];
+

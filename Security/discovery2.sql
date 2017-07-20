@@ -1,0 +1,2 @@
+﻿CREATE USER [discovery2] WITHOUT LOGIN;
+
